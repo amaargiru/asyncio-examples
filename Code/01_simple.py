@@ -20,8 +20,7 @@ async def main():
     task1 = asyncio.create_task(fun1(3, 2))
     task2 = asyncio.create_task(fun2(3, 2))
 
-    await task1
-    await task2
+    await asyncio.wait([task1, task2], return_when=asyncio.ALL_COMPLETED)
 
     duration_time = datetime.now() - start_time
     print(f"Total duration time: {duration_time}")

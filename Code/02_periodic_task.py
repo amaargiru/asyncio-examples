@@ -17,10 +17,13 @@ async def periodic_fun2(a, b):
 async def main():
     start_time = datetime.now()
 
-    asyncio.create_task(periodic_fun1(3, 2))
-    asyncio.create_task(periodic_fun2(3, 2))
+    task1 = asyncio.create_task(periodic_fun1(3, 2))
+    task2 = asyncio.create_task(periodic_fun2(3, 2))
 
     await asyncio.sleep(10)
+
+    task1.cancel()
+    task2.cancel()
 
     duration_time = datetime.now() - start_time
     print(f"Total duration time: {duration_time}")
