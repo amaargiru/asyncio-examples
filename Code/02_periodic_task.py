@@ -10,7 +10,7 @@ async def periodic_fun1(a, b):
 
 async def periodic_fun2(a, b):
     while True:
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
         print(f"periodic_fun2 complete with result {a - b}")
 
 
